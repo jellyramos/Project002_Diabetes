@@ -1,6 +1,3 @@
-// $('.top-content').backstretch("static/img/top-contentBGalt.jpg");
-
-
 jQuery(document).ready(function() {
 
     /*
