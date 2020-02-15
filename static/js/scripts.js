@@ -1,0 +1,1 @@
+$('.top-content').backstretch("static/img/top-contentBGalt.jpg");
