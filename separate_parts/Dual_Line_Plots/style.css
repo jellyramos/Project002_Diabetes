@@ -1,0 +1,41 @@
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+.green {
+  stroke: green;
+}
+
+.blue {
+  stroke: blue;
+}
+
+.text {
+  font-size: 16px;
+  text-anchor: middle;
+}
+
+.y1_text {
+  fill: green;
+  font-weight: bold;
+}
+
+.y2_text {
+  fill: blue;
+  font-weight: bold;
+}
+
+.tooltip {
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  padding: 10px;
+  font: 12px sans-serif;
+  text-align: center;
+  color: white;
+  background: blue;
+  border: 0;
+  border-radius: 10px;
+  display: none;
+}

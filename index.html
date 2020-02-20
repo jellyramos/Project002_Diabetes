@@ -1,180 +1,221 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>Diabetes Close to Home</title>
-
-    <meta name="description" content="">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/media-queries.css">
 
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="static/css/mapCAstyle.css">
 
 </head>
 
-<body>
-    <!-- All the Javascript of which There is Many -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/ce49e23f06.js" crossorigin="anonymous"></script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-    <script src="static/js/logic.js"></script>
-
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
-    <script src="assets/js/jquery.backstretch.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/retina.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-
-    <!-- Nav Bar  -->
-    <nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Diabetes In the Scope of Sacramento</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#top-content">Top</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#overview">Diabetes Overview</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#california">California</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#sacramento">Sacramento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#so-what">So What?</a>
-                </ul>
-            </div>
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-    </nav>
+    </div>
 
-    <!-- Top content -->
-    <div class="top-content">
-        <div class="container">
+    <div class="site-wrap">
 
-            <div class="row">
-                <div class="col-md-8 offset-md-2 text">
-                    <h1 class="wow fadeInLeftBig">Diabetes and Closer Look Close to Home</h1>
-                    <div class="description wow fadeInLeftBig">
-                        <p>
-                            A Data Visualiztion by Tammy Cronin, Phil Lee, and Angelica Ramos
-                        </p>
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <div class="site-navbar site-navbar-target js-sticky-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <h1 class="my-0 site-logo"><a href="index.html">Diabetes</a></h1>
                     </div>
-                    <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-primary btn-link-2 scroll-link" href="#overview">Let's Get Started!</a>
+                    <div class="col-10">
+                        <nav class="site-navigation text-right" role="navigation">
+                            <div class="container">
+                                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+                                <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                    <li>
+                                        <a href="#home-section" class="nav-link">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#projects-section" class="nav-link">Summary</a>
+                                    </li>
+                                    <li><a href="#news-section" class="nav-link">California</a></li>
+                                    <li><a href="#services-section" class="nav-link">Sacramento</a></li>
+                                    <li><a href="#contact-section" class="nav-link">Conclusion</a></li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="site-blocks-cover overlay" style="background-image: url(images/top-contentBGalt.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="home-section">
+        <div class="container">
+            <div class="row align-items-center text-center justify-content-center">
+                <div class="col-md-8">
+                    <h1 class="text-uppercase">Diabetes Close to Home</h1>
+                    <span class="sub-text mb-3 d-block"><em>A Data Project by Tammy Cronin, Phil Lee, and Angelica Ramos</em></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="site-section" id="projects-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    <span class="sub-title">Summary</span>
+                    <h2 class="font-weight-bold text-black">Diabetes in General: Why Should We Care?</h2>
+                    <p class="mb-5">
+                        In 2 years, the percentage of the total US population diagnosed with diabetes went from
+                        <br>
+                        <h2>9% to 10.5%</h2>
+                        </br>
+                        <br>That's 32.4 million individuals in the US. Moreover, many people may be predibetic and completely unaware. It is estimated that 9 out of 10 Americans are prediabetic.
+
+                        <br><br>
+                        <h2>Diabetes is 7th leading cause of death in the US</h2>
+                        </br>
+                        <br>The ADA report that more Americans die from diabetes every year than from AIDS and breast cancer combined. According to the CDC, 79,535 deaths occur each year due to diabetes. The number of fatalities related to diabetes may
+                        be underreported.</p>
+                </div>
+            </div>
+
 
         </div>
     </div>
 
-    <!-- Overview -->
-    <div class="overview">
-        <div class="container">
 
+
+
+    <div class="site-section" id="news-section">
+        <div class="container">
             <div class="row">
-                <div class="col-md-8 offset-md-2 text">
-                    <h1 class="wow fadeInLeftBig">A Summary of Diabetes</h1>
-                    <div class="description wow fadeInLeftBig">
-                        <p>
-                            Here we'll have a trendline by Tammy plus some overall stats such as the fact that 9/10 Americans are pre-diabetic and don't even know it.
-                        </p>
-                    </div>
-                    <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-primary btn-link-2 scroll-link" href="#california">See It in Action</a>
-                    </div>
+                <div class="col-12 text-center">
+                    <span class="sub-title">California</span>
+                    <h2 class="font-weight-bold text-black mb-5">Diabetes by County</h2>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-6" id="map_CA">
+                    <p class="mb-5">CA map of Diabetes Stats by County</p>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus, lacus nec vestibulum fermentum, lorem mi sollicitudin tortor, porttitor aliquet odio ipsum id odio. Mauris rhoncus ac ipsum quis semper. Nunc aliquam enim sed
+                        elit pretium laoreet. Sed eros libero, faucibus ultricies tortor ac, gravida tristique ante. Nullam mi ligula, scelerisque nec condimentum at, hendrerit eget massa. Aliquam sed scelerisque enim. Vestibulum mollis libero eget felis
+                        vestibulum tincidunt quis ac arcu. Curabitur aliquam tincidunt lobortis. Aenean mattis lacus at nulla ullamcorper accumsan. Quisque vel ornare metus, congue luctus metus. Donec varius lectus commodo feugiat semper. Aliquam lacinia
+                        justo non ipsum blandit, ac feugiat felis dignissim. Fusce semper elementum velit et commodo.</p>
+                </div>
+            </div>
+
 
         </div>
     </div>
 
-    <!-- California -->
-    <div class="california">
+    <div class="site-section" id="services-section">
         <div class="container">
-
-            <div class="row">
-                <div class="col-md-8 offset-md-2 text">
-                    <h1 class="wow fadeInLeftBig">Diabetes by County in Caliornia</h1>
-                    <div class="description wow fadeInLeftBig">
-                        <p>
-                            You can see the map of California with all the counties and the count of diabetic instaces per county. From here you can see what the density of diabetes is across the state, but we will be focusing in on Sacramento because of its personal relevancy.
-                        </p>
-                    </div>
-                    <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-primary btn-link-2 scroll-link" href="#sacramento">Take Me Closer to Home</a>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    <span class="sub-title">Sacramento</span>
+                    <h2 class="font-weight-bold text-black">Diabetes by Tract</h2>
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo, quasi. Magni deserunt sunt labore.</p>
                 </div>
             </div>
 
+
         </div>
     </div>
+    </div>
 
-    <!-- Sacramento -->
-    <div class="sacramento">
+    <div class="site-section bg-light" id="contact-section">
         <div class="container">
-
-            <div class="row">
-                <div class="col-md-8 offset-md-2 text">
-                    <h1 class="wow fadeInLeftBig">Zooming In: Sacramento Tract Analysis</h1>
-                    <div class="description wow fadeInLeftBig">
-                        <p>
-                            Let's look at the high risk factors throughout the tracts. Unfortunately they do not have diabetes information divided up on such a granular level, but we felt that looking at the factors that are already known to be linked with becomming diabeteic would
-                            still be valuable enough to preseent.
-                        </p>
-                    </div>
-                    <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-primary btn-link-2 scroll-link" href="#so-what">Now What?</a>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    <span class="sub-title">Conclusion</span>
+                    <h2 class="font-weight-bold text-black">Okay, Now What?</h2>
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo, quasi. Magni deserunt sunt labore.</p>
                 </div>
             </div>
-
-        </div>
-    </div>
-
-    <!-- So What? -->
-    <div class="so-what">
-        <div class="container">
-
             <div class="row">
-                <div class="col-md-8 offset-md-2 text">
-                    <h1 class="wow fadeInLeftBig">Okay, But What Can We Do?</h1>
-                    <div class="description wow fadeInLeftBig">
-                        <p>
-                            Essentially, we can look at these factors and see that Sacramentos biggest density lies in _______ which is why we belikevee that changes made in this realm would be the most beneficial escially consideering there ares o many people that could be dealing
-                            with it unbeknownst ven to themselves.
-                        </p>
-                    </div>
-                    <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-primary btn-link-2 scroll-link" href="#top-content">Back to the Top</a>
-                    </div>
+
+                <div class="col-md-12 col-lg-12">
+
+
+                    </form>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <footer class="site-footer border-top">
+        <div class="container">
+            <div class="row pt-5 mt-5 text-center">
+                <div class="col-md-12">
+                    <p>
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This dashboard is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by the help of <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="static/js/mapCAconfig.js"></script>
+    <script src="static/js/mapCAlogic.js"></script>
 
 
 </body>
