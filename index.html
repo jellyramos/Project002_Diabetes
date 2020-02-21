@@ -31,6 +31,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="static/css/mapCAstyle.css">
 
+    <!-- Phil Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+    <script type="text/javascript" src="static/js/appSinglePlot.js"></script>
+    <script type="text/javascript" src="static/js/appSinglePlot2.js"></script>
+    <link rel="stylesheet" href="static/css/CircleLinestyle.css">
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -115,13 +124,52 @@
                         be underreported.</p>
                 </div>
             </div>
+            <hr>
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-6">
+                    <select name='chooseGraph' id="graphSelector">
+                        <option value='1'>INCOME VS. DIABETES</option>
+                        <option value='2'>EDUCATION VS. DIABETES</option>
+                        <option value='3'>HEALTH VS. DIABETES</option>
+                      </select>
+                    <div class="chart"></div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="col-6">
+                        <select name='chooseGraph' id="graphSelector">
+                    <option value='1'>ECONOMIC VS. DIABETES 1</option>
+                    <option value='2'>ECONOMIC VS. DIABETES 2</option>
+                    <option value='3'>EDUCATION VS. DIABETES 2</option>
+                    <option value='4'>EDUCATION VS. DIABETES 1</option>
+                    <option value='5'>HEALTH VS. DIABETES 1</option>
+                    <option value='6'>HEALTH VS. DIABETES 2</option>
+                  </select>
+                    </div>
+                    <div class="col-6">
+                        </left>
+                        <div class="row">
+                            <div id="plot1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        </left>
+                        <div class="row">
+                            <div id="plot2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
         </div>
     </div>
 
 
-
+    <hr>
 
     <div class="site-section" id="news-section">
         <div class="container">
@@ -132,21 +180,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-lg-6" id="map_CA">
+                <div class="col-12" id="map_CA">
                     <p class="mb-5">CA map of Diabetes Stats by County</p>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus, lacus nec vestibulum fermentum, lorem mi sollicitudin tortor, porttitor aliquet odio ipsum id odio. Mauris rhoncus ac ipsum quis semper. Nunc aliquam enim sed
-                        elit pretium laoreet. Sed eros libero, faucibus ultricies tortor ac, gravida tristique ante. Nullam mi ligula, scelerisque nec condimentum at, hendrerit eget massa. Aliquam sed scelerisque enim. Vestibulum mollis libero eget felis
-                        vestibulum tincidunt quis ac arcu. Curabitur aliquam tincidunt lobortis. Aenean mattis lacus at nulla ullamcorper accumsan. Quisque vel ornare metus, congue luctus metus. Donec varius lectus commodo feugiat semper. Aliquam lacinia
-                        justo non ipsum blandit, ac feugiat felis dignissim. Fusce semper elementum velit et commodo.</p>
                 </div>
             </div>
 
 
         </div>
     </div>
-
+    <hr>
     <div class="site-section" id="services-section">
         <div class="container">
             <div class="row justify-content-center">
